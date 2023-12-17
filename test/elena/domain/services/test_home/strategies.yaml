@@ -2,7 +2,7 @@ Strategies:
   - id: ExchangeBasicOperationsTest-1
     name: ExchangeBasicOperationsTest
     enabled: true
-    strategy_class: test.elena.domain.services.test_elena.ExchangeBasicOperationsBot
+    strategy_class: test.elena.domain.services.test_telegram.TelegramNotificationTest
     bots:
       - id: Exchange_Test_Ops_BTC_USDT
         name: Exchange Basic Operations Test 1 on BTC/USDT
