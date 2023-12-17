@@ -49,7 +49,6 @@ class TelegramNotificationTest(GenericBot):
 
         # Send some notification
 
-
         return self.status
 
 

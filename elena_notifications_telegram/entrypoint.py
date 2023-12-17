@@ -3,7 +3,7 @@ from elena.adapters.config.local_config_reader import LocalConfigReader
 from elena import __version__ as version
 import time
 
-# for debugging only!!!!
+# this is only for testing the CLI version
 def main():
     # debug using ELENA_HOME pointing to ./local_data
     config = LocalConfigReader().config
