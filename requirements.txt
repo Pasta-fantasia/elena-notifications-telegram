@@ -1,2 +1,4 @@
 # elena @ git+https://github.com/Pasta-fantasia/elena.git@main#egg=elena
 # add your dependencies here
+requests~=2.31.0
+types-requests~=2.31.0.10
