@@ -7,7 +7,7 @@ Logger:
 MetricsManager:
   class: elena.adapters.metrics_manager.local_metrics_manager.LocalMetricsManager
 NotificationsManager:
-  class: elena.adapters.notifications_manager.local_notifications_manager.LocalNotificationsManager
+  class: elena_notifications_telegram.adapters.notifications_manager.telegram_notifications_manager.TelegramNotificationsManager
 LocalBotManager:
   path: bots # relative path under home directory
 CctxExchangeManager:
