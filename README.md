@@ -8,6 +8,8 @@ Notifications implementation for Telegram
 - On Pycharm clone elena and elena-sample.
 - To test the strategy create a virtual env on elena-sample and from the Pycharm terminal (making sure that the venv is active) run
 ```
+pip install --upgrade pip
+pip install -U setuptools wheel
 pip install -e ../elena
 pip install -r requirements.txt
 ```
