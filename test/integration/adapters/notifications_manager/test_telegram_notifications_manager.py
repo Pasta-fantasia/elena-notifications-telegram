@@ -15,19 +15,19 @@ def test_telegram_notifications_manager():
     sut = get_instance(config["NotificationsManager"]["class"])
     sut.init(config, logger)
 
-    sut.high("High notification")
-    sut.medium("Medium notification")
-    sut.low("Low notification")
+    sut.high("High notification test message")
+    sut.medium("Medium notification test message")
+    sut.low("Low notification test message")
 
-    assert logger.mock_calls[0]._get_call_arguments() == (
-        ("High notification '%s'", "High notification"),
-        {},
+    assert (
+        logger.mock_calls[0]._get_call_arguments()[0][0]
+        == "‼️ High notification test message"
     )
-    assert logger.mock_calls[1]._get_call_arguments() == (
-        ("Medium notification '%s'", "Medium notification"),
-        {},
+    assert (
+        logger.mock_calls[1]._get_call_arguments()[0][0]
+        == "⚠️ Medium notification test message"
     )
-    assert logger.mock_calls[2]._get_call_arguments() == (
-        ("Low notification '%s'", "Low notification"),
-        {},
+    assert (
+        logger.mock_calls[2]._get_call_arguments()[0][0]
+        == "Low notification test message"
     )
