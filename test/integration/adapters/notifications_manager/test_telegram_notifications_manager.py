@@ -2,18 +2,22 @@ import pathlib
 from os import path
 from unittest.mock import Mock
 
-from elena.adapters.config.local_config_reader import LocalConfigReader
-from elena.shared.dynamic_loading import get_instance
+from elena.domain.ports.logger import Logger
+from elena.domain.ports.storage_manager import StorageManager
+from elena.domain.services.elena import (get_config_manager,
+                                         get_notifications_manager)
 
 
 def test_telegram_notifications_manager():
-    test_home_dir = path.join(pathlib.Path(__file__).parent, "test_home")
-    config = LocalConfigReader(test_home_dir).config
-
-    logger = Mock()
-
-    sut = get_instance(config["NotificationsManager"]["class"])
-    sut.init(config, logger)
+    config_manager = get_config_manager(
+        config_manager_class_path="elena.adapters.config.local_config_manager.LocalConfigManager",
+        config_manager_url=path.join(
+            pathlib.Path(__file__).parent.parent.parent, "test_home"
+        ),
+    )
+    config = config_manager.get_config()
+    logger = Mock(spec=Logger)
+    sut = get_notifications_manager(config, logger, Mock(spec=StorageManager))
 
     sut.high("High notification test message")
     sut.medium("Medium notification test message")

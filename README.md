@@ -17,7 +17,8 @@ Notifications implementation for Telegram
    5. Copy the chat ID and store it from field `result.message.chat.id`
 4. Edit your `secrets.yaml` file in `ELENA_HOME` directory with the values you got in steps 2 and 3:
    ```yaml
-   TelegramNotificationsManager:
+   NotificationsManager:
+     class: elena_notifications_telegram.adapters.notifications_manager.telegram_notifications_manager.TelegramNotificationsManager
      http_api_token: PUT_HERE_YOUR_TELEGRAM_BOT_API_TOKEN
      chat_id: PUT_HERE_YOUR_TELEGRAM_CHAT_ID
    ```
@@ -26,4 +27,4 @@ Notifications implementation for Telegram
 
 - On Pycharm clone elena and elena_notifications_telegram.
 - Create a virtual env on elena_notifications_telegram and from the Pycharm terminal (making sure that the venv is active) run `make install`
-- To run integration test, on `/test/integration/adapters/notifications_manager/test_home` copy the sample file `secrets-sample.yaml` to `secrets.yaml` and configure your Telegram access configuration as explained before (it doesn't need real exchange info)
+- To run integration test, on `/test/integration/test_home` copy the sample file `secrets-sample.yaml` to `secrets.yaml` and configure your Telegram access configuration as explained before (it doesn't need real exchange info)

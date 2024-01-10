@@ -159,4 +159,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 .idea/
-/test/integration/adapters/notifications_manager/test_home/secrets.yaml
+/test/integration/test_home/secrets.yaml

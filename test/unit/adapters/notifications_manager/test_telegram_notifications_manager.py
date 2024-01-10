@@ -1,12 +1,12 @@
+from logging import Logger
 from unittest.mock import Mock, patch
 
 from adapters.notifications_manager.telegram_notifications_manager import \
     TelegramNotificationsManager
-from elena.adapters.logger.local_logger import LocalLogger
 
 
 def test_telegram_notifications_manager():
-    logger = Mock(spec=LocalLogger)
+    logger = Mock(spec=Logger)
     config = {
         "TelegramNotificationsManager": {
             "http_api_token": "test_token",
