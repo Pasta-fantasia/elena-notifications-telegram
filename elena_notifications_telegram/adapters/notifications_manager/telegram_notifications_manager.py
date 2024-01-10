@@ -1,6 +1,7 @@
 import requests
 from elena.domain.ports.logger import Logger
 from elena.domain.ports.notifications_manager import NotificationsManager
+from elena.domain.ports.storage_manager import StorageManager
 
 
 class TelegramNotificationsManager(NotificationsManager):
@@ -12,10 +13,10 @@ class TelegramNotificationsManager(NotificationsManager):
         url = f"https://api.telegram.org/bot{self._http_api_token}/sendMessage?chat_id={self._chat_id}&text={msg}"
         requests.get(url)
 
-    def init(self, config: dict, logger: Logger):
+    def init(self, config: dict, logger: Logger, storage_manager: StorageManager):
         self._logger = logger
-        self._http_api_token = config["TelegramNotificationsManager"]["http_api_token"]
-        self._chat_id = config["TelegramNotificationsManager"]["chat_id"]
+        self._http_api_token = config["NotificationsManager"]["http_api_token"]
+        self._chat_id = config["NotificationsManager"]["chat_id"]
 
     def high(self, notification: str):
         msg = f"‼️ {notification}"
